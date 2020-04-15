@@ -34,6 +34,9 @@ public class Main {
         String number = scan.nextLine();
         Contact contact = new Contact(name, number);
         myAgenda.addContact(contact);
+        // folosind acest cod ajung sa imi fie create contacte gen:
+        // Contact@2a2d45ba Contact@2a5ca609 si nu inteleg de ce
+        // sa fie acestea referintele din memorie?
     }
 
     public static void deleteContact () {
@@ -46,6 +49,7 @@ public class Main {
         System.out.println("Input the name you want to modify - original");
         String name = scan.nextLine();
         System.out.println("Input the name you want to change to ");
+        // aici nu e gata inca
     }
 
     public static void findContact () {
@@ -53,5 +57,6 @@ public class Main {
         String name = scan.nextLine();
         if (myAgenda.findContact2(name)) System.out.println(name + " was found in the phone's agenda");
         else System.out.println(name + " was not found in the phone's agenda");
+        // aici nu e gata inca
     }
 }

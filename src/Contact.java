@@ -24,5 +24,4 @@ public class Contact {
         this.number = number;
     }
 
-    public void
 }
