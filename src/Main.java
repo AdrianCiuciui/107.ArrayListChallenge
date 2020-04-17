@@ -33,9 +33,6 @@ public class Main {
         String number = scan.nextLine();
         Contact contact = new Contact(name, number);
         myAgenda.addContact(contact);
-        // folosind acest cod ajung sa imi fie create contacte gen:
-        // Contact@2a2d45ba Contact@2a5ca609 si nu inteleg de ce
-        // sa fie acestea referintele din memorie?
     }
 
     public static void deleteContact () {
