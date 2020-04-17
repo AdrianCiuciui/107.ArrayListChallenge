@@ -27,7 +27,7 @@ public class MobilePhone {
         int position = findContact(contact);
         if (position >= 0) {
             deleteContact(position);
-            System.out.println("Contact from position " + position + "deleted");
+            System.out.println("Contact from position " + (position + 1) + " deleted");
             return true;
         }
         System.out.println("Could not find contact " + contact.getName() );
@@ -67,6 +67,12 @@ public class MobilePhone {
         else return null;
     }
 
+    public Contact queryContact (String name) {
+        int position = findContact(name);
+        if (position >= 0) return this.list.get(position);
+        return null;
+    }
+
     // private methods
 
     private int findContact(Contact contact) {
@@ -84,13 +90,4 @@ public class MobilePhone {
     private void deleteContact (int position) {
         list.remove(position);
     }
-
-    private void modifyContact (int position, Contact newC) {
-        list.set(position, newC);
-        System.out.println(newC.getName() + " with number " + newC.getNumber());
-    }
-
-
-
-
 }

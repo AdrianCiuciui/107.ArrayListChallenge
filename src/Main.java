@@ -31,28 +31,46 @@ public class Main {
         String name = scan.nextLine();
         System.out.println("Insert phone number");
         String number = scan.nextLine();
-        Contact contact = new Contact(name, number);
-        myAgenda.addContact(contact);
+        Contact contact = Contact.createContact(name, number);
+        if (myAgenda.addContact(contact)) {
+            System.out.println("New contact added " + name + " " + number);
+        }
     }
 
     public static void deleteContact () {
-        System.out.println("Input name of the contact you want deleted");
-        String input = scan.nextLine();
-        myAgenda.deleteContact(input);
+        System.out.println("Input the name you want to delete");
+        String name = scan.nextLine();
+        Contact contact = myAgenda.queryContact(name);
+        if (contact == null) System.out.println("Contact not found");
+        else
+            myAgenda.deleteContact(contact);
     }
 
     public static void modifyContact () {
         System.out.println("Input the name you want to modify - original");
         String name = scan.nextLine();
         System.out.println("Input the name you want to change to ");
-        // aici nu e gata inca
+        Contact existingContactRecord = myAgenda.queryContact(name);
+        if (existingContactRecord == null) System.out.println("Contact not found");
+
+        System.out.println("Insert name");
+        String nameNew = scan.nextLine();
+        System.out.println("Insert phone number");
+        String number = scan.nextLine();
+        Contact contactNew = Contact.createContact(nameNew, number);
+        if (myAgenda.modifyContact(existingContactRecord, contactNew))
+            System.out.println("Succesfully updated record");
+        else
+            System.out.println("Error updating contact");
     }
 
-    public static void findContact () { // trebuie refacut
-        System.out.println("Input name you want to find");
+    public static void findContact () {
+        System.out.println("Input the name you want to modify - original");
         String name = scan.nextLine();
-        if (myAgenda.findContact(name)) System.out.println(name + " was found in the phone's agenda");
-        else System.out.println(name + " was not found in the phone's agenda");
-        // aici nu e gata inca
+        System.out.println("Input the name you want to change to ");
+        Contact existingContactRecord = myAgenda.queryContact(name);
+        if (existingContactRecord == null) System.out.println("Contact not found");
+        else
+            System.out.println(name + " with number" + existingContactRecord.getNumber() +  " was found in the phone's agenda");
     }
 }
