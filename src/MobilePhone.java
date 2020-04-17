@@ -4,15 +4,10 @@ public class MobilePhone {
     
     private ArrayList<Contact> list;
 
-    //public methods
-
     public MobilePhone () {
-        this.list = new ArrayList<Contact>();
+        this.list = new ArrayList<>();
     }
 
-    public ArrayList <Contact> getList () {
-        return list;
-    }
 
     public boolean addContact (Contact contact) {
         if (findContact(contact.getName()) >= 0) {
@@ -60,11 +55,6 @@ public class MobilePhone {
                 "3. delete contact\n" +
                 "4. edit contact.\n" +
                 "5. search contact");
-    }
-
-    public String queryContact (Contact contact) {
-        if (findContact(contact) >= 0) return contact.getName();
-        else return null;
     }
 
     public Contact queryContact (String name) {
