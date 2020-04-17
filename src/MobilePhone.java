@@ -2,9 +2,13 @@ import java.util.ArrayList;
 
 public class MobilePhone {
     
-    private ArrayList<Contact> list = new ArrayList<Contact>();
+    private ArrayList<Contact> list;
 
     //public methods
+
+    public MobilePhone () {
+        this.list = new ArrayList<Contact>();
+    }
 
     public ArrayList <Contact> getList () {
         return list;

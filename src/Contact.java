@@ -8,20 +8,15 @@ public class Contact {
         this.number = number;
     }
 
-    public String getName() {
-        return name;
+    public static Contact createContact (String name, String number) {
+        return new Contact(name,number);
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public String getName() {
+        return name;
     }
 
     public String getNumber() {
         return number;
     }
-
-    public void setNumber(String number) {
-        this.number = number;
-    }
-
 }
