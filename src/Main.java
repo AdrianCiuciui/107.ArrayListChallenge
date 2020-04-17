@@ -4,7 +4,6 @@ public class Main {
     private static Scanner scan = new Scanner(System.in);
     private static MobilePhone myAgenda = new MobilePhone();
 
-
     public static void main (String[] args) {
         myAgenda.printMenu();
         while (true) {
@@ -52,10 +51,10 @@ public class Main {
         // aici nu e gata inca
     }
 
-    public static void findContact () {
+    public static void findContact () { // trebuie refacut
         System.out.println("Input name you want to find");
         String name = scan.nextLine();
-        if (myAgenda.findContact2(name)) System.out.println(name + " was found in the phone's agenda");
+        if (myAgenda.findContact(name)) System.out.println(name + " was found in the phone's agenda");
         else System.out.println(name + " was not found in the phone's agenda");
         // aici nu e gata inca
     }
