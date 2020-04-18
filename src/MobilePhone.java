@@ -8,8 +8,7 @@ public class MobilePhone {
         this.list = new ArrayList<>();
     }
 
-
-    public boolean addContact (Contact contact) {
+    public boolean isContactDuplicate(Contact contact) {
         if (findContact(contact.getName()) >= 0) {
             System.out.println("Contact is already in the agenda");
             return false;
@@ -27,6 +26,10 @@ public class MobilePhone {
         }
         System.out.println("Could not find contact " + contact.getName() );
         return false;
+    }
+
+    private void deleteContact (int position) {
+        list.remove(position);
     }
 
     public boolean modifyContact (Contact oldC, Contact newC) {
@@ -77,7 +80,4 @@ public class MobilePhone {
         return -1;
     }
 
-    private void deleteContact (int position) {
-        list.remove(position);
-    }
 }

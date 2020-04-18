@@ -12,6 +12,8 @@ public class Contact {
         return new Contact(name,number);
     }
 
+    // de ce este static aici? de ce nu a fost bine sa
+
     public String getName() {
         return name;
     }

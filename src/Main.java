@@ -26,18 +26,18 @@ public class Main {
         }
     }
 
-    public static void addContact () {
+    private static void addContact () {
         System.out.println("Insert name");
         String name = scan.nextLine();
         System.out.println("Insert phone number");
         String number = scan.nextLine();
         Contact contact = Contact.createContact(name, number);
-        if (myAgenda.addContact(contact)) {
+        if (myAgenda.isContactDuplicate(contact)) {
             System.out.println("New contact added " + name + " " + number);
         }
     }
 
-    public static void deleteContact () {
+    private static void deleteContact () {
         System.out.println("Input the name you want to delete");
         String name = scan.nextLine();
         Contact contact = myAgenda.queryContact(name);
@@ -46,7 +46,7 @@ public class Main {
             myAgenda.deleteContact(contact);
     }
 
-    public static void modifyContact () {
+    private static void modifyContact () {
         System.out.println("Input the name you want to modify - original");
         String name = scan.nextLine();
         System.out.println("Input the name you want to change to ");
@@ -59,12 +59,12 @@ public class Main {
         String number = scan.nextLine();
         Contact contactNew = Contact.createContact(nameNew, number);
         if (myAgenda.modifyContact(existingContactRecord, contactNew))
-            System.out.println("Succesfully updated record");
+            System.out.println("Successfully  updated record");
         else
             System.out.println("Error updating contact");
     }
 
-    public static void findContact () {
+    private static void findContact () {
         System.out.println("Input the name you want to modify - original");
         String name = scan.nextLine();
         System.out.println("Input the name you want to change to ");
